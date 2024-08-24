@@ -6,18 +6,20 @@ const PrimaryButton = ({
   title,
   position = "left",
   otherClasses,
+  textClasses,
 }: {
   icon?: React.ReactNode;
   title: string;
   position?: string;
   otherClasses?: string;
+  textClasses?: string;
 }) => {
   return (
     <Button
       className={`flex items-center gap-3 bg-gradient-to-b from-[#1A1A1A] to-[#262626] rounded-2xl py-[10px] px-5 ${otherClasses}`}
     >
       {position === "left" && icon}
-      <span>{title}</span>
+      <span className={`${textClasses}`}>{title}</span>
       {position === "right" && icon}
     </Button>
   );
