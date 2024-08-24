@@ -1,4 +1,9 @@
-const Coin = ({ selectedCoin }: { selectedCoin: string }) => {
+import { selectedCoinState } from "@/store/coinFlip";
+import { useRecoilValue } from "recoil";
+
+const Coin = () => {
+  const selectedCoin = useRecoilValue(selectedCoinState);
+
   return (
     <div
       className={`flex items-center justify-center relative backface-hidden transform-style-3d transition ease-out duration-500 ${

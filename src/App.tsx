@@ -1,4 +1,4 @@
-import CoinFlipCard from "./components/shared/coin/CoinFlipCard";
+import CoinFlipCard from "./components/shared/card/CoinFlipCard";
 import NavBar from "./components/shared/NavBar";
 
 function App() {
