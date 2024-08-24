@@ -14,7 +14,7 @@ const MinMaxBtn = () => {
         className={`bg-[#433d49] hover:bg-[#433d49] border-[#50464b] shadow-sm hover:shadow-[0px_1px_10px_2px_#45fd09]`}
         onClick={() => setBetAmount(MIN_BET)}
       >
-        <span className="text-white text-base">Min</span>
+        <span className="text-white text-sm">MIN</span>
       </Button>
 
       <Button
@@ -23,7 +23,7 @@ const MinMaxBtn = () => {
         className={`bg-[#433d49] hover:bg-[#433d49] border-[#50464b] shadow-sm hover:shadow-[0px_1px_10px_2px_#45fd09]`}
         onClick={() => setBetAmount(MAX_BET)}
       >
-        <span className="text-white text-base">Max</span>
+        <span className="text-white text-sm">MAX</span>
       </Button>
     </div>
   );

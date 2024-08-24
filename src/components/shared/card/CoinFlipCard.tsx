@@ -1,12 +1,13 @@
-import BetAmount from "@/components/coin-flip/BetAmount";
-import MinMaxBtn from "@/components/coin-flip/MinMaxBtn";
+import BetAmount from "@/components/flip-coin/BetAmount";
+import FlipCoinBtn from "@/components/flip-coin/FlipCoinBtn";
+import HeadTailBtn from "@/components/flip-coin/HeadTailBtn";
+import MinMaxBtn from "@/components/flip-coin/MinMaxBtn";
 import Coin from "../Coin";
-import HeadTailBtn from "@/components/coin-flip/HeadTailBtn";
 
 const CoinFlipCard = () => {
   return (
     <div
-      className="p-[50px] border-[5px] bg-[#3b3838cc] border-[#ffd100] rounded-[73px] flex flex-col items-center shadow-md shadow-[#ffd10] w-[350px] gap-5"
+      className="p-[50px] border-[5px] bg-[#3b3838cc] border-[#ffd100] rounded-[73px] flex flex-col items-center shadow-md shadow-[#ffd10] w-[400px] gap-5"
       style={{
         boxShadow: "inset 0 0 10px #ffd100, 0 0 10px #ffd100",
       }}
@@ -22,6 +23,8 @@ const CoinFlipCard = () => {
       <BetAmount />
 
       <MinMaxBtn />
+
+      <FlipCoinBtn />
     </div>
   );
 };
