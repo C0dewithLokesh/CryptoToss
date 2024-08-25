@@ -1,22 +1,27 @@
 import React from "react";
 import { Button } from "../ui/button";
 
-const PrimaryButton = ({
+interface PrimaryButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  icon?: React.ReactNode;
+  title: string;
+  position?: "left" | "right";
+  otherClasses?: string;
+  textClasses?: string;
+}
+
+const PrimaryButton: React.FC<PrimaryButtonProps> = ({
   icon,
   title,
   position = "left",
   otherClasses,
   textClasses,
-}: {
-  icon?: React.ReactNode;
-  title: string;
-  position?: string;
-  otherClasses?: string;
-  textClasses?: string;
+  ...props
 }) => {
   return (
     <Button
       className={`flex items-center gap-3 bg-gradient-to-b from-[#1A1A1A] to-[#262626] rounded-2xl py-[10px] px-5 ${otherClasses}`}
+      {...props}
     >
       {position === "left" && icon}
       <span className={`${textClasses}`}>{title}</span>

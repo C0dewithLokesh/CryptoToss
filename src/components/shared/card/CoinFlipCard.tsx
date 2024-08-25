@@ -2,12 +2,15 @@ import BetAmount from "@/components/flip-coin/BetAmount";
 import FlipCoinBtn from "@/components/flip-coin/FlipCoinBtn";
 import HeadTailBtn from "@/components/flip-coin/HeadTailBtn";
 import MinMaxBtn from "@/components/flip-coin/MinMaxBtn";
+import { useWallet } from "@/hooks/useWallet";
 import Coin from "../Coin";
 
 const CoinFlipCard = () => {
+  const { isValidChain, isActive } = useWallet();
+  
   return (
     <div
-      className="p-[50px] border-[5px] bg-[#3b3838cc] border-[#ffd100] rounded-[73px] flex flex-col items-center shadow-md shadow-[#ffd10] w-[400px] gap-5"
+      className="p-[50px] py-[30px] border-[5px] bg-[#3b3838cc] border-[#ffd100] rounded-[73px] flex flex-col items-center shadow-md shadow-[#ffd10] w-[400px] gap-5"
       style={{
         boxShadow: "inset 0 0 10px #ffd100, 0 0 10px #ffd100",
       }}
@@ -25,6 +28,21 @@ const CoinFlipCard = () => {
       <MinMaxBtn />
 
       <FlipCoinBtn />
+
+      <p
+        className="text-white text-[10px] font-bold leading-[11px] uppercase"
+        style={{ textShadow: "0 0 7px #fff" }}
+      >
+        Flip the coin and win 0.2 Sol
+      </p>
+      {!isValidChain && isActive && (
+        <p
+          className="text-red-600 text-[10px] font-bold leading-[11px] uppercase"
+          style={{ textShadow: "0 0 7px #fa9292" }}
+        >
+          Invalid chain, supported chains: Sepolia
+        </p>
+      )}
     </div>
   );
 };
