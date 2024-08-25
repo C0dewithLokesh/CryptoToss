@@ -4,7 +4,7 @@ export const switchNetwork = async (
 ) => {
   if (!window.ethereum) return;
   try {
-    await window?.ethereum.request({
+    await (window as any).ethereum.request({
       method: "wallet_switchEthereumChain",
       params: [{ chainId }],
     });
@@ -12,7 +12,7 @@ export const switchNetwork = async (
     console.log("e", error);
     if (error.code === 4902 && networkDetails) {
       try {
-        await window?.ethereum.request({
+        await (window as any).ethereum.request({
           method: "wallet_addEthereumChain",
           params: [networkDetails],
         });
