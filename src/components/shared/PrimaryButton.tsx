@@ -20,7 +20,7 @@ const PrimaryButton: React.FC<PrimaryButtonProps> = ({
 }) => {
   return (
     <Button
-      className={`flex items-center gap-3 bg-gradient-to-b from-[#1A1A1A] to-[#262626] rounded-2xl py-[10px] px-5 ${otherClasses}`}
+      className={`flex items-center gap-3 bg-[#262626] rounded-2xl py-[10px] px-5 ${otherClasses}`}
       {...props}
     >
       {position === "left" && icon}

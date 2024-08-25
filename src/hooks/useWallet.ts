@@ -17,7 +17,10 @@ export const useWallet = () => {
   useEffect(() => {
     const previousConnection = localStorage.getItem("walletConnected");
     if (previousConnection && !!window.ethereum?.isMetaMask) {
-      connector.activate();
+      // Need to wait for the ethereum to be injected, just in the next event loop
+      setTimeout(() => {
+        connector.activate();
+      }, 0);
     }
   }, [connector]);
 
