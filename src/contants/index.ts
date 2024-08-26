@@ -1,3 +1,5 @@
+import { COINFLIP_ABI } from "./coinFlipAbi";
+
 export const MIN_BET = 0.025;
 export const MAX_BET = 0.5;
 export const BET_STEP = 0.025;
@@ -31,4 +33,14 @@ export const NETWORK_DETAILS = {
     rpcUrls: ["https://eth-sepolia.g.alchemy.com/v2/YOUR_ALCHEMY_API_KEY"],
     blockExplorerUrls: ["https://sepolia.etherscan.io"],
   },
+};
+
+export const WAITFOR_CONFIRMATIONS = 2;
+
+// export const COINFLIP_ADDRESS = "0x9D7f74d0C41E726EC95884E0e97Fa6129e3b5E99"; // VRF v2.5 on Sepolia
+export const COINFLIP_ADDRESS = "0x9abee2aa8352f0b073c165e09b84ac67db59efd3"; // VRF v2.5 on Sepolia
+
+export const COINFLIP = {
+  address: COINFLIP_ADDRESS,
+  abi: COINFLIP_ABI,
 };

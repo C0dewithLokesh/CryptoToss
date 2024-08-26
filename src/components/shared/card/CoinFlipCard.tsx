@@ -2,12 +2,18 @@ import BetAmount from "@/components/flip-coin/BetAmount";
 import FlipCoinBtn from "@/components/flip-coin/FlipCoinBtn";
 import HeadTailBtn from "@/components/flip-coin/HeadTailBtn";
 import MinMaxBtn from "@/components/flip-coin/MinMaxBtn";
+import { useBetResult } from "@/hooks/useBetResult";
 import { useWallet } from "@/hooks/useWallet";
+import { useWeb3React } from "@web3-react/core";
 import Coin from "../Coin";
+import CollectProfit from "@/components/flip-coin/CollectProfit";
 
 const CoinFlipCard = () => {
+  const { account } = useWeb3React();
   const { isValidChain, isActive } = useWallet();
-  
+
+  useBetResult(account!);
+
   return (
     <div
       className="p-[50px] py-[30px] border-[5px] bg-[#3b3838cc] border-[#ffd100] rounded-[73px] flex flex-col items-center shadow-md shadow-[#ffd10] w-[400px] gap-5"
@@ -43,6 +49,8 @@ const CoinFlipCard = () => {
           Invalid chain, supported chains: Sepolia
         </p>
       )}
+
+      <CollectProfit />
     </div>
   );
 };
