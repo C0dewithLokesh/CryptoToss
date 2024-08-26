@@ -1,7 +1,7 @@
 import { useCallback, useEffect } from "react";
 
-import { useCoinFlipContract } from "./useContract";
 import { BigNumberish } from "@ethersproject/bignumber";
+import { useCoinFlipContract } from "./useContract";
 
 export const useEventCallback = (
   name: string,
@@ -13,7 +13,7 @@ export const useEventCallback = (
 
   useEffect(() => {
     if (!contract) {
-      console.error(`Contract is not available`);
+      // console.error(`Contract is not available`);
       return;
     }
 

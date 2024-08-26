@@ -1,14 +1,20 @@
-import { selectedCoinState } from "@/store/coinFlip";
+import { betLoadingState } from "@/store/betState";
+import { addTransactionState, selectedCoinState } from "@/store/coinFlip";
 import { useRecoilValue } from "recoil";
 
 const Coin = () => {
   const selectedCoin = useRecoilValue(selectedCoinState);
+  const transaction = useRecoilValue(addTransactionState);
+  const betLoading = useRecoilValue(betLoadingState);
+  const transactionLoading = transaction && Object.keys(transaction).length > 0;
 
   return (
     <div
-      className={`flex items-center justify-center relative backface-hidden transform-style-3d transition ease-out duration-500 ${
-        selectedCoin === "tail" && "perspective-[10cm]  rotate-180"
-      }`}
+      className={`flex items-center justify-center relative backface-hidden ${
+        transactionLoading || betLoading
+          ? "animate-rotateY"
+          : "transform-style-3d transition ease-out duration-500"
+      } ${selectedCoin === "tail" && "perspective-[10cm]  rotate-180"}`}
       style={{
         transform:
           selectedCoin === "tail" ? "perspective(10cm) rotateY(180deg)" : "",

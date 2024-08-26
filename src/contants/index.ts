@@ -1,3 +1,4 @@
+import { SupportedChains } from "@/types";
 import { COINFLIP_ABI } from "./coinFlipAbi";
 
 export const MIN_BET = 0.025;
@@ -5,10 +6,16 @@ export const MAX_BET = 0.5;
 export const BET_STEP = 0.025;
 
 // [Ethereum Mainnet, Sepolia Testnet]
-export const SUPPORTED_CHAINS = [
-  // 1,
-  11155111,
-];
+export const SUPPORTED_CHAINS: SupportedChains = {
+  // 1: {
+  //   name: "MainNet",
+  //   etherScanPrefix: "",
+  // },
+  11155111: {
+    name: "Sepolia",
+    etherScanPrefix: "sepolia.",
+  },
+} as const;
 
 export const NETWORK_DETAILS = {
   // mainnet: {

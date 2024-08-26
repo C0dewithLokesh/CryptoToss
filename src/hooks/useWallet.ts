@@ -10,7 +10,7 @@ export const useWallet = () => {
   const setWallet = useSetRecoilState(walletState);
 
   const isValidChain = useMemo(
-    () => chainId && SUPPORTED_CHAINS.includes(chainId),
+    () => (chainId && SUPPORTED_CHAINS[chainId] ? true : false),
     [chainId]
   );
 

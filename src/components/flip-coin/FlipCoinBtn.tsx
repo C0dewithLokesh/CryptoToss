@@ -1,23 +1,23 @@
 import { toast } from "@/components/ui/use-toast";
 import { useGame } from "@/hooks/useGame";
 import { useWallet } from "@/hooks/useWallet";
+import { betLoadingState } from "@/store/betState";
 import { selectedCoinState } from "@/store/coinFlip";
-import { transactionLoadingState } from "@/store/globalState";
 import { useWeb3React } from "@web3-react/core";
 import { useRecoilValue } from "recoil";
 import { Button } from "../ui/button";
 
 const FlipCoinBtn = () => {
   const { account } = useWeb3React();
-  const { isActive, isMetaMask, activate } = useWallet();
+  const { isActive, isMetaMask, activate, isValidChain } = useWallet();
   const selectedCoin = useRecoilValue(selectedCoinState);
   const { handleBet } = useGame();
-  const loading = useRecoilValue(transactionLoadingState);
+  const betLoading = useRecoilValue(betLoadingState);
 
   return (
     <Button
       variant={"outline"}
-      disabled={loading}
+      disabled={betLoading}
       className={`bg-[#433d49] hover:bg-[#433d49] border-[#50464b] py-1 px-7 w-auto h-auto`}
       onClick={() => {
         if (!isMetaMask) {
@@ -25,6 +25,9 @@ const FlipCoinBtn = () => {
         }
         if (!account || !isActive) {
           activate();
+        }
+        if (!isValidChain && isActive) {
+          toast({ description: "Invalid chain, supported chains: Sepolia" });
         }
         if (selectedCoin === "head") {
           handleBet(0);

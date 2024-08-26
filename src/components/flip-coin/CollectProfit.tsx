@@ -15,10 +15,10 @@ const CollectProfit = () => {
     }
   }, [value, setProfit]);
 
-  if (!profit || profit !== 0.0) return;
+  if (!profit || profit == 0.0) return;
 
   return (
-    <div className="flex items-center gap-3">
+    <div className="flex items-center gap-3 justify-between">
       <p
         className="text-white text-[10px] font-bold leading-[11px] uppercase"
         style={{ textShadow: "0 0 7px #fff" }}

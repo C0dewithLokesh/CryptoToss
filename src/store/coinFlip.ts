@@ -10,7 +10,7 @@ export const betAmountState = atom<number>({
   default: 0.1,
 });
 
-export const addTransactionState = atom({
+export const addTransactionState = atom<any>({
   key: "addTransactionState",
   default: {},
 });
