@@ -8,7 +8,7 @@ export const useGame = () => {
   const [betChoice, setBetChoice] = useState<number | null>(null);
   const [shouldFlip, setShouldFlip] = useState(false);
 
-  const doFlip = useFunction("bet", 0.001, [betChoice!]);
+  const doFlip = useFunction("bet", betAmount, [betChoice!]);
   const collectFunds = useFunction("withdrawPlayerBalance");
 
   const handleBet = useCallback((choice: number) => {
