@@ -35,7 +35,7 @@ export const useFunction = (
           gasLimit: calculateGasMargin(estimatedGas),
         }
       );
-      if (functionName === "withdrawPlayerBalance")
+      if (functionName !== "withdrawPlayerBalance")
         setAddTransaction({ hash, from, value, wait });
     } catch (error: any) {
       toast({
