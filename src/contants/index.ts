@@ -1,9 +1,9 @@
 import { SupportedChains } from "@/types";
 import { COINFLIP_ABI } from "./coinFlipAbi";
 
-export const MIN_BET = 0.025;
-export const MAX_BET = 0.5;
-export const BET_STEP = 0.025;
+export const MIN_BET = 0.005;
+export const MAX_BET = 0.1;
+export const BET_STEP = 0.005;
 
 // [Ethereum Mainnet, Sepolia Testnet]
 export const SUPPORTED_CHAINS: SupportedChains = {
