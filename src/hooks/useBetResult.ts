@@ -2,12 +2,15 @@ import { formatEther } from "@ethersproject/units";
 
 import { toast } from "@/components/ui/use-toast";
 import { betLoadingState } from "@/store/betState";
+import { profitState } from "@/store/coinFlip";
 import { useSetRecoilState } from "recoil";
 import { useEventCallback } from "./useEventCallback";
 import { useReadFunction } from "./useReadFunction";
 
 export const useBetResult = (account: string) => {
-  const { call } = useReadFunction("getPlayerBalance", "eth");
+  const { call, value: profit } = useReadFunction("getPlayerBalance", "eth");
+
+  const setProfit = useSetRecoilState(profitState);
   const setBetLoading = useSetRecoilState(betLoadingState);
 
   useEventCallback(
@@ -15,6 +18,7 @@ export const useBetResult = (account: string) => {
     (address, win, value) => {
       if (address === account) {
         call();
+        setProfit(profit);
         setBetLoading(false);
         toast({
           title: win

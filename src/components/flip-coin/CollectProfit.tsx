@@ -14,7 +14,8 @@ const CollectProfit = () => {
       setProfit(value);
     }
   }, [value, setProfit]);
-
+  console.log("v", value)
+  console.log("p", profit)
   if (!profit || profit == 0.0) return;
 
   return (
