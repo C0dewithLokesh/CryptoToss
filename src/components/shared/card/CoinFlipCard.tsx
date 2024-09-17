@@ -49,7 +49,7 @@ const CoinFlipCard = () => {
             className="text-white text-[10px] font-bold leading-[11px] uppercase"
             style={{ textShadow: "0 0 7px #fff" }}
           >
-            Flip the coin and win 0.2 Sol
+            Flip the coin and win 0.2 ETH
           </p>
           {!isValidChain && isActive && (
             <p
