@@ -7,7 +7,7 @@ export const selectedCoinState = atom<"head" | "tail">({
 
 export const betAmountState = atom<number>({
   key: "betAmountState",
-  default: 0.005,
+  default: 0.1,
 });
 
 export const addTransactionState = atom<any>({
